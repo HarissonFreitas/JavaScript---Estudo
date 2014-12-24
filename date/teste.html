@@ -1,0 +1,269 @@
+<html>
+<head>
+<title>::: O Objeto Date :::</title>
+</head>
+
+<script>
+
+///Ordem da chamadas das funções
+
+function first(){
+    console.log("1 - Antes");
+
+    second();
+
+    console.log("1 - Depois");
+}
+
+function second(){
+    console.log("2 - Antes")
+
+    third();
+
+    console.log("2 - Depois");
+}
+
+function third(){
+    console.log("3 - SuperSape");
+}
+
+first();
+
+///Outras formas de declarar funcoes em javascript
+
+var quickLine = function(){//Declaração de função mais utilizada quando estamos trabalhando com programação funcional
+    document.write("<br>");
+};
+
+document.write("HAR");
+quickLine();
+document.write("HAR");
+
+///codigos diferentes
+
+
+
+
+
+
+
+</script>
+
+<!--
+<script>
+
+function construirArray(qtdElementos){
+	this.length = qtdElementos
+}
+
+    var dia;
+    var mes;
+    var ano;
+    
+    var	arrayDia = new construirArray(31);
+
+    arrayDia = ["01","02","03","04","05","06","07","08","09","10",
+    			"11","12","13","14","15","16","17","18","19","20",
+    			"21","22","23","24","25","26","27","28","29","30","31",];
+
+	var arrayMes = new construirArray(2);
+	arrayMes = ["00","01","02","03","04","05",
+				"06","07","08","09","10","11","12"];
+
+	var arrayPre_Ano = new construirArray(1);
+	arrayPre_Ano = ["19"];
+
+	var arraySufixo1_Ano = new construirArray(10);
+	arraySufixo1_Ano = ["0","1","2","3","4",
+						"5","6","7","8","9"];
+	var arraySufixo2_Ano = new construirArray(10);
+	arraySufixo2_Ano = ["0","1","2","3","4",
+						"5","6"];
+    
+    randon_Ano = parseInt(Math.random() * arrayPre_Ano.length);
+    randon_Ano1 = parseInt(Math.random() * arraySufixo1_Ano.length);
+    randon_Ano2 = parseInt(Math.random() * arraySufixo2_Ano.length);
+
+    retornoAno = arrayPre_Ano[randon_Ano] + arraySufixo1_Ano[randon_Ano1] + arraySufixo2_Ano[randon_Ano2];
+    
+    var arrayAno = new construirArray(1);
+    arrayAno = [retornoAno];
+
+
+function mostrarDataHora(){
+					
+					/***Dia***/
+
+	//Uso do método Math.random() para percorrer os arrays
+	randon = parseInt(Math.random() * arrayDia.length);
+	randon_1 = parseInt(Math.random() * arrayMes.length);
+	randon_2 = parseInt(Math.random() * arrayAno.length);
+    
+    //Declaração da Intancia de um novo objeto (dataAtual) do tipo Date;
+	dataAtual = new Date();
+    
+    //Uso dos métodos de acesso para os tipos de dados "Date", setDate -> Informar o o valor que quero atribuir ao objeto, e o getDate para pegar este valor e atribuir a variável dia;
+    dataAtual.setDate(arrayDia[randon]);
+    dia = dataAtual.getDate();
+    
+    //Variavel Retorno recebe a formatação para exibição do objeto
+    if (dia < arrayDia[9]) {
+    	retorno_dia = "0"+dia;
+    }
+    else{
+    retorno_dia = dia;
+    }
+					/***Mês***/
+    dataMes = new Date();
+    dataMes.setMonth(arrayMes[randon_1]);
+    mes = dataMes.getMonth();
+
+	if (mes <= arrayMes[0]) {
+    	retorno_mes = arrayMes[1];
+    }
+    else if ((mes < arrayMes[10]) && (mes > arrayMes[0])) {
+    	retorno_mes = "0"+mes;
+    }
+    else{
+    retorno_mes = mes;
+    }
+
+					/***Ano***/
+	dataAno = new Date();
+	dataAno.setFullYear(arrayAno[randon_2]);
+	ano = dataAno.getFullYear(); 
+	///Calcular  e validar ano bisexto
+if ((ano %400 == 0)|| ((ano %4 == 0)&&(ano %100 != 0))) {
+        retorno_dia = arrayDia[28];
+
+    }else{
+        retorno_dia;
+    }   
+    
+    
+    formatoData = retorno_dia+ " " +retorno_mes+ " " +ano;
+
+   // var numero = Math.floor(Math.random() * 65536);  
+
+    document.getElementById("data").innerHTML = formatoData ;
+
+}
+
+function quickLine(){
+
+    document.write("<hr>");
+}
+
+
+document.write("Gerador de Data Randomica");
+quickLine();
+
+document.write("Data para Automacao de Testes");
+quickLine();
+
+document.write("Automacao Unicred vair ser:");
+document.write(10);
+quickLine();
+
+document.write("A medida:"+((26+26+12)/3));
+quickLine();
+
+function show(text){
+
+    document.write(text);
+    quickLine();
+}
+
+show("Data Master");
+
+console.log("UNICRED MASTER");
+
+function CalcularIMC(altura,peso){
+
+    var imc = peso /(altura * altura);
+    //show("Valor do IMC " + imc);
+
+    return imc;
+}
+
+var pesoMae = 75;
+var alturaMae = 1.50;
+
+var imcMar = CalcularIMC(alturaMae,pesoMae);
+show("Valor IMC = " + imcMar);
+
+//Outra forma de fazer 
+var pesoPai = 80;
+var alturaPai = 1.92;
+
+show("O IMC do Pai = "+ CalcularIMC(alturaPai,pesoPai));
+
+///Utilizando a Função Math.Round
+///A mesma chamado de função utilizada quando era declarada uma variavel = var imc = CalcularIMC(altura, peso), podemos declarar agora assim:
+///Arredondando o valor do IMC, o uso dessa função do navegador é adequada quando se quer ter um valor arredondado.
+var imc = Math.round(CalcularIMC(alturaPai, pesoPai));
+show("IMC = " + imc);
+
+///Utilizando o comando Prompt
+//var nome = prompt("Test Complete");
+//document.write("Automacao com " + nome);
+
+///Outro Exemplo mais dinamico do uso do Prompt
+
+//var nomeUsuario = prompt("Usuario");
+//document.write("Usuario " +nomeUsuario);
+
+//var idade = prompt(nomeUsuario + "Idade");
+//document.write("Idade do Usuario" + idade);
+
+///Calcular IMC utilizando com o uso do Prompt
+
+//var pesoUsuario = prompt("Peso do Usuario");
+//var alturaUsuario = prompt("Altura do Usuario");
+
+//show("IMC do Usuario :" + CalcularIMC(alturaUsuario, pesoUsuario));
+
+///Outro uso do Prompt
+
+//var age = prompt("Qual sua Idade?");
+//var days = age *365;
+//document.write("Vc ja viveu " + days + " Dias de Vida");
+
+//var batimentos = days * 24 * 60 * 80;
+//document.write("Seu Coracao bateu " + batimentos + " Vezes");
+
+///funçao para resolver este algoritmo de batimentos cardiacos
+
+function calculaDiasDeVida(idade){
+
+    var dias = idade * 365;
+
+    return dias;
+}
+
+function calculaBatidasDoCoracao(dias){
+
+    var batimentos = dias * 24 * 60 * 80;
+
+    return batimentos;
+}
+
+var idade_T = prompt("Qual sua idade?");
+show("Voce tem " + calculaDiasDeVida(idade_T) + " Dias de vida");
+
+var dias = calculaDiasDeVida(idade_T);
+show("Totais de batimentos cardiacos = " + calculaBatidasDoCoracao(dias));
+
+///Ordem da chamadas das funcoes?
+
+
+
+
+
+
+</script> -->
+
+<body onload="mostrarDataHora()"> 
+	<div id="data"></div>
+</body>
+</html>
