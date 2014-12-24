@@ -31,16 +31,34 @@ first();
 
 ///Outras formas de declarar funcoes em javascript
 
-var quickLine = function(){//Declaração de função mais utilizada quando estamos trabalhando com programação funcional
+/*var quickLine = function(){//Declaração de função mais utilizada quando estamos trabalhando com programação funcional
     document.write("<br>");
-};
+};*/
+
+function quickLine(){
+
+    document.write("<hr>");
+}
+
+function show(text){
+
+    document.write(text);
+    quickLine();
+}
 
 document.write("HAR");
 quickLine();
 document.write("HAR");
+quickLine();
 
 ///codigos diferentes
 
+var vitorias = prompt("Quantos Jogos o CDC FC venceu?");
+var empates = prompt("Quantos jogos o CDC FC empatou?");
+
+var pontos = (vitorias * 3) + empates;
+
+show("Nosso time tem " + pontos + " pontos!");
 
 
 
