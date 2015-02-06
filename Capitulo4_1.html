@@ -1,0 +1,178 @@
+
+<html>
+<head>
+<title>Capitulo 4</title>
+</head>
+<script>
+
+//CAPITULO 4 	- CONDICIONAIS
+/// 4.1 QUANTOS PONTOS TEM O TIME DE FUTEBOL
+///Funcao para pular linha
+function pularLinha(){
+
+	document.write("<hr>");
+}
+
+///Funcao para exibir
+function show(text){
+
+	document.write(text);
+	pularLinha();
+}
+
+///Declaracao e inicializacao de variaveis
+// var vitorias = prompt("Quantos jogos o Time venceu?");
+// var empates = prompt("Quantos jogos o Time empatou");
+// ///Nste trecho de codigo vai concatenar o valor inteiro de (vitorias *3) + o valor passado para empate que é string, pois foi usado a funcao prompt. Nao ocorreu com vitórias, pois a mutiplicação tratou de resolver esse problema. 
+// var pontos = (vitorias *3) + empates; 
+// show("O Time tem " + pontos + " pontos!");
+
+///Usando a funcao parseInt
+///Testes antes de aplicar o uso do parseInt:
+///Sem Parse Int
+// var VI = 3;
+// var EMP = "1"; ///String
+// var Score = VI *3 + EMP;
+// show("O Time tem " + Score + " pontos!");
+
+// alert(Score);
+
+///Criando uma variavel auxiliar para tratar o tipo string
+///Somando Numeros
+// var VI = 3;
+// var EMP = "1"; ///String
+// var EMP_Inteiro = parseInt(EMP);
+// var Score = VI *3 + EMP_Inteiro;
+// show("O Time tem " + Score + " pontos!");
+
+// alert(Score);
+
+///Versao sem variavel auxiliar - conversao usando a mesma variavel do tipo string
+
+// var VI = 3;
+// var EMP = "1"; ///String
+// EMP = parseInt(EMP);
+// var Score = VI *3 + EMP;
+// show("O Time tem " + Score + " pontos!");
+
+// alert(Score);
+
+///Versao com conversao no momento da declaracao e atribuicao da variavel
+
+// var VI = 3;
+// var EMP = parseInt("1"); ///Convertendo a string para Inteiro
+// var Score = VI *3 + EMP;
+// show("O Time tem " + Score + " pontos!");
+
+// alert(Score);
+
+///Versao Convertendo todas as variaveis correntamente de string para receber um valor inteiro e calcular
+
+///Dados do Time
+// var vitorias = parseInt(prompt("Quantos Jogos o Gremio venceu?"));
+// var empates = parseInt(prompt("Quantos Jogos o Gremio empatou?"));
+// var pontos = (vitorias *3) + empates;
+
+// show("O Time teve em 2014: " + pontos+ " Pontos");
+// calcularPontosBrasileiro(pontos);
+
+// ///Dados do Inter 
+// var vitorias_2 = parseInt(prompt("Quantos Jogos o Inter Venceu"));
+// var empates_2 = parseInt(prompt("Quantos Jogos o Inter Empatou"));
+// var pontos_2 = (vitorias_2 *3) + empates_2;
+
+// show("O Inter teve em 2014: " + pontos_2+ "Pontos");
+
+// calcularPontosBrasileiro(pontos_2);
+
+///4.2 Condicionando o JavaScript
+// if ((pontos >=0) && (pontos <=24)){
+
+// 	show("Time foi rebaixado para serie B de 2015!!!!");
+
+// }else if((pontos > 24) && (pontos <= 39)){
+
+// 	show("Time ficou no meio da tabel, jogará a Copa do Brasil!!!!");
+
+// }else if((pontos > 39) && (pontos <= 50)){
+
+//     show("Time disputara a sulamenricana e copa dos brasil em 2015!!!!");    
+
+// }else if ((pontos > 50 ) && (pontos <= 60)){
+
+// 	show("Time jogara a Libertadores 2015!!!!");
+
+// }else if(pontos > 60){
+
+// 	show("Time campeao do campeonato brasileiro de  2014 e com vaga grantida para a libertadores 2015!!!!");
+
+// }
+
+
+////Funcao para calcular os pontos:
+// function calcularPontos(vitorias, empates){
+
+// 	return (vitorias * 3) + empates;
+
+// }
+
+///Funcao para calcular pontos contabilizando derrotas
+
+function calcularPontos(vitorias, empates, derrotas){
+
+	return (vitorias * 3) + empates - derrotas;
+
+}
+
+///Funcao para validar os pontos com base em calculos
+function calcularPontosBrasileiro(pontos){
+
+
+
+if ((pontos >=0) && (pontos <=24)){
+
+	show(" foi rebaixado para serie B de 2015!!!!");
+
+}else if((pontos > 24) && (pontos <= 39)){
+
+	show("Time ficou no meio da tabela, jogara a Copa do Brasil!!!!");
+
+}else if((pontos > 39) && (pontos <= 50)){
+
+    show("Time disputara a sulamenricana e copa dos brasil em 2015!!!!");    
+
+}else if ((pontos > 50 ) && (pontos <= 65)){
+
+	show("Time jogara a Libertadores 2015!!!!");
+
+}else if(pontos > 65){
+
+	show("Time campeao do campeonato brasileiro de  2014 e com vaga grantida para a libertadores 2015!!!!");
+
+}
+
+//document.write(pontos);
+
+}
+
+///Versao da contagem de pontos cchamando a funcoa calcularPontos(vitorias, empates) e com as derrotas sendo contabilizados em -1
+var vitorias = parseInt(prompt("Quantos Jogos o Gremio venceu?"));
+var empates = parseInt(prompt("Quantos Jogos o Gremio empatou?"));
+var derrotas = parseInt(prompt("Quantos jogos o Gremio perdeu?"));
+//var pontos = (vitorias *3) + empates;
+
+show("O Gremio teve em 2014: " + calcularPontos(vitorias, empates, derrotas)+ " Pontos");
+calcularPontosBrasileiro(calcularPontos(vitorias, empates, derrotas));
+
+///Dados do Inter 
+var vitorias_2 = parseInt(prompt("Quantos Jogos o Inter Venceu"));
+var empates_2 = parseInt(prompt("Quantos Jogos o Inter Empatou"));
+var derrotas_2 = parseInt(prompt("Quantos jogos o Inter perdeu?"));
+//var pontos_2 = (vitorias_2 *3) + empates_2;
+
+show("O Inter teve em 2014: " + calcularPontos(vitorias_2, empates_2, derrotas_2)+ " Pontos");	
+calcularPontosBrasileiro(calcularPontos(vitorias_2, empates_2, derrotas_2));//
+
+</script>
+<body></body>
+</html>
